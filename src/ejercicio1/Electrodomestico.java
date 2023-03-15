@@ -41,6 +41,14 @@ public class Electrodomestico {
 		this.consumoEnergetico = consumoEnergetico;
 		this.peso = peso;
 	}
+	
+	public void comprobarColor(String color) {
+
+		String colores[] = { "blanco", "negro", "rojo", "azul", "gris" };
+		boolean existe = Arrays.asList(colores).contains(color.toLowerCase());
+		this.color = existe ? color : COLOR_BSE;
+
+	}
 
 	public int getPrecioBase() {
 		return precioBase;
