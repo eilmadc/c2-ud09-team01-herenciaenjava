@@ -11,6 +11,7 @@ public class Television extends Electrodomestico{
 	
 	private static final int RESOLUCION_DEF = 20;
 	private static boolean SINTONIZADOR_DEF = false;
+	
 	private int resolucion;
 	private boolean sintonizadorTDT;
 
@@ -60,8 +61,17 @@ public class Television extends Electrodomestico{
 
 	@Override
 	public String toString() {
-		return "Television [resolucion=" + resolucion + ", sintonizadorTDT=" + sintonizadorTDT + "]";
+		return "TELEVISIÓN: "
+				+ "Resolucion: "+ resolucion
+				+ " / Sintonizador TDT: " + sintonizadorTDT 
+				+ " / Precio Base: "+ precioBase + "€"
+				+ " / Color: " + color 
+				+ " / Consumo Energetico: " + consumoEnergetico 
+				+ " / Peso: " + peso + "kg"
+				+ "\n----------------------";
 	}
+
+	
 
 
 }

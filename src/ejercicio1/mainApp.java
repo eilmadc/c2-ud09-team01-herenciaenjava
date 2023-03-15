@@ -4,7 +4,7 @@
 package ejercicio1;
 
 /**
- * @author elena-01
+ * @author Team01 (Elena, Palmira, Paul)
  *
  */
 public class mainApp {
@@ -22,21 +22,54 @@ public class mainApp {
 		System.out.println("************** Ejercicio 1 *************\n");
 
 		Electrodomestico electrodomestico[] = new Electrodomestico[10];
-		
-		
 
-		System.out.println(electrodomestico[0].toString());
-		System.out.println(electrodomestico[1].toString());
-
-//		for (int i = 0; i < electrodomestico.length; i++) {
-//			electrodomestico[i].toString();
-//		}
+		rellenarDatos(electrodomestico);
+		mostrarCalcularDatos(electrodomestico);
 
 	}
-	
-	public void rellenarDatos(Electrodomestico electrodomestico[]) {
+
+	public static void rellenarDatos(Electrodomestico electrodomestico[]) {
 		electrodomestico[0] = new Electrodomestico(750, "rojo", 'E', 45);
-		electrodomestico[1] = new Lavadora(750, "rojo", 'E', 45, 7);
+		electrodomestico[1] = new Electrodomestico(550, "negro", 'A', 25);
+		electrodomestico[2] = new Electrodomestico(175, "azul", 'D', 39);
+		electrodomestico[3] = new Lavadora(350, "blanco", 'B', 45, 7);
+		electrodomestico[4] = new Lavadora(675, "plata", 'F', 45, 7);
+		electrodomestico[5] = new Lavadora(800, "GRIS", 'C', 45, 7);
+		electrodomestico[6] = new Television(1750, 65, 'A', "blanco", 2160, true);
+		electrodomestico[7] = new Television(1200, 50, 'A', "blanco", 1080, true);
+		electrodomestico[8] = new Television(690, 32, 'C', "blanco", 720, true);
+		electrodomestico[9] = new Television(320, 22, 'J', "morado", 720, false);
+	}
+
+	public static void mostrarCalcularDatos(Electrodomestico electrodomestico[]) {
+
+		double totalElectrodomesticos = 0, totalTelevisores = 0, totalLavadoras = 0;
+
+		System.out.println("************** Listado de productos **************");
+		for (int i = 0; i < electrodomestico.length; i++) {
+
+			if (electrodomestico[i] instanceof Electrodomestico) {
+				totalElectrodomesticos = totalElectrodomesticos + electrodomestico[i].precioFinal();
+			}
+			if (electrodomestico[i] instanceof Lavadora) {
+				totalLavadoras = totalLavadoras + electrodomestico[i].precioFinal();
+				totalElectrodomesticos = totalElectrodomesticos + electrodomestico[i].precioFinal();
+			}
+			if (electrodomestico[i] instanceof Television) {
+				totalTelevisores = totalTelevisores + electrodomestico[i].precioFinal();
+				totalElectrodomesticos = totalElectrodomesticos + electrodomestico[i].precioFinal();
+			}
+
+			System.out.println((i + 1) + ": " + electrodomestico[i].toString());
+		}
+
+		mostrarTotal(totalElectrodomesticos, totalTelevisores, totalLavadoras);
+	}
+
+	public static void mostrarTotal(double totalElectrodomesticos, double totalTelevisores, double totalLavadoras) {
+		System.out.println(
+				"\n************** TOTAL **************" + "\n- Total electrodomésticos: " + totalElectrodomesticos
+						+ "\n- Total lavadoras: " + totalLavadoras + "\n- Total televisores: " + totalTelevisores);
 	}
 
 }

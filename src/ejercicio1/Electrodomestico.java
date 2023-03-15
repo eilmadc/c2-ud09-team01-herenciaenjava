@@ -58,7 +58,7 @@ public class Electrodomestico {
 
 	public double precioFinal() {
 		double precioFinal = 0;
-		
+
 		switch (consumoEnergetico) {
 		case 'A':
 		case 'a':
@@ -98,13 +98,11 @@ public class Electrodomestico {
 		} else if (peso > 80) {
 			precioFinal += 100;
 		}
-		
+
 		precioFinal = precioBase + precioFinal;
 
 		return precioFinal;
 	}
-	
-	
 
 	public double getPrecioBase() {
 		return precioBase;
@@ -140,8 +138,12 @@ public class Electrodomestico {
 
 	@Override
 	public String toString() {
-		return "Electrodomestico [precioBase=" + precioBase + ", color=" + color + ", consumoEnergetico="
-				+ consumoEnergetico + ", peso=" + peso + "]";
+		return "ELECTRODOMÉSTICO: "
+				+ "Precio Base: "+ precioBase + "€"
+				+ " / Color: " + color 
+				+ " / Consumo Energetico: " + consumoEnergetico 
+				+ " / Peso: " + peso + "kg"
+				+ "\n----------------------";
 	}
 
 }
