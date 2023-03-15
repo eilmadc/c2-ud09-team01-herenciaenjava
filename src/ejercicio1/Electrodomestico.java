@@ -37,12 +37,12 @@ public class Electrodomestico {
 
 	public Electrodomestico(int precioBase, String color, char consumoEnergetico, int peso) {
 		this.precioBase = precioBase;
-		this.color = color;
+		comprobarColor(color);
 		this.consumoEnergetico = consumoEnergetico;
 		this.peso = peso;
 	}
 	
-	public void comprobarColor(String color) {
+	private void comprobarColor(String color) {
 
 		String colores[] = { "blanco", "negro", "rojo", "azul", "gris" };
 		boolean existe = Arrays.asList(colores).contains(color.toLowerCase());
