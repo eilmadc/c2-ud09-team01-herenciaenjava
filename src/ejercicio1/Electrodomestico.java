@@ -138,4 +138,10 @@ public class Electrodomestico {
 		this.peso = peso;
 	}
 
+	@Override
+	public String toString() {
+		return "Electrodomestico [precioBase=" + precioBase + ", color=" + color + ", consumoEnergetico="
+				+ consumoEnergetico + ", peso=" + peso + "]";
+	}
+
 }
