@@ -11,15 +11,15 @@ import java.util.Arrays;
  */
 public class Electrodomestico {
 
-	private final static double PRC_BSE = 100;
-	private final static String COLOR_BSE = "blanco";
-	private final static char CNSMO_ENRG = 'F';
-	private final static double PSO_BSE = 5;
+	protected final static double PRC_BSE = 100;
+	protected final static String COLOR_BSE = "blanco";
+	protected final static char CNSMO_ENRG = 'F';
+	protected final static double PSO_BSE = 5;
 
-	private double precioBase;
-	private String color;
-	private char consumoEnergetico;
-	private double peso;
+	protected double precioBase;
+	protected String color;
+	protected char consumoEnergetico;
+	protected double peso;
 
 	public Electrodomestico() {
 		this.precioBase = PRC_BSE;
