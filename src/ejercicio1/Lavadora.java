@@ -50,6 +50,7 @@ public class Lavadora extends Electrodomestico {
 		return carga;
 	}
 
+	//Metodo precioFinal
 	@Override
 	public double precioFinal() {
 /*
@@ -59,7 +60,5 @@ public class Lavadora extends Electrodomestico {
 
 		return (carga>30? (super.precioFinal()+ 50) : super.precioFinal());
 	}
-
-
 	
 }
