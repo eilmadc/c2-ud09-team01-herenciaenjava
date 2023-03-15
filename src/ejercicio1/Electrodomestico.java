@@ -11,15 +11,15 @@ import java.util.Arrays;
  */
 public class Electrodomestico {
 
-	private final static int PRC_BSE = 100;
+	private final static double PRC_BSE = 100;
 	private final static String COLOR_BSE = "blanco";
 	private final static char CNSMO_ENRG = 'F';
-	private final static int PSO_BSE = 5;
+	private final static double PSO_BSE = 5;
 
-	private int precioBase;
+	private double precioBase;
 	private String color;
 	private char consumoEnergetico;
-	private int peso;
+	private double peso;
 
 	public Electrodomestico() {
 		this.precioBase = PRC_BSE;
@@ -28,14 +28,14 @@ public class Electrodomestico {
 		this.peso = PSO_BSE;
 	}
 
-	public Electrodomestico(int precioBase, int peso) {
+	public Electrodomestico(double precioBase, double peso) {
 		this.precioBase = precioBase;
 		this.color = COLOR_BSE;
 		this.consumoEnergetico = CNSMO_ENRG;
 		this.peso = peso;
 	}
 
-	public Electrodomestico(int precioBase, String color, char consumoEnergetico, int peso) {
+	public Electrodomestico(double precioBase, String color, char consumoEnergetico, double peso) {
 		this.precioBase = precioBase;
 		comprobarColor(color);
 		this.consumoEnergetico = consumoEnergetico;
@@ -58,11 +58,11 @@ public class Electrodomestico {
 
 	}
 
-	public int getPrecioBase() {
+	public double getPrecioBase() {
 		return precioBase;
 	}
 
-	public void setPrecioBase(int precioBase) {
+	public void setPrecioBase(double precioBase) {
 		this.precioBase = precioBase;
 	}
 
@@ -82,11 +82,11 @@ public class Electrodomestico {
 		this.consumoEnergetico = consumoEnergetico;
 	}
 
-	public int getPeso() {
+	public double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(int peso) {
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 
