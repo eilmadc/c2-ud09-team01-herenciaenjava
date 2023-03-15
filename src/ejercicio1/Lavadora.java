@@ -56,4 +56,12 @@ public class Lavadora extends Electrodomestico {
 		return (carga > 30 ? (super.precioFinal() + 50) : super.precioFinal());
 	}
 
+	@Override
+	public String toString() {
+		return "Lavadora [carga=" + carga + ", precioBase=" + precioBase + ", color=" + color + ", consumoEnergetico="
+				+ consumoEnergetico + ", peso=" + peso + "]";
+	}
+	
+	
+
 }
