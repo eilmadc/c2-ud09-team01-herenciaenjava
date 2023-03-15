@@ -13,7 +13,8 @@ public class mainApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Electrodomestico elec1 = new Electrodomestico();
+		System.out.println(elec1);
 
 	}
 
