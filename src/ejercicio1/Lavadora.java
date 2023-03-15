@@ -50,8 +50,10 @@ public class Lavadora extends Electrodomestico {
 	}
 
 	public void precioFinal() {
+		double precio;
 		if (carga>30) {
-			this.precioBase
+			precio = getPrecioBase() + 50;
+			setPrecioBase(precio);
 		}
 	}
 	
