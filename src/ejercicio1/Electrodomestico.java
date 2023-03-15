@@ -27,7 +27,7 @@ public class Electrodomestico {
 		this.consumoEnergetico = CNSMO_ENRG;
 		this.peso = PSO_BSE;
 	}
-	
+
 	public Electrodomestico(int precioBase, int peso) {
 		this.precioBase = precioBase;
 		this.color = COLOR_BSE;
@@ -41,7 +41,15 @@ public class Electrodomestico {
 		this.consumoEnergetico = consumoEnergetico;
 		this.peso = peso;
 	}
-	
+
+	private void comprobarConsumoEnergetico(char letra) {
+		if ((letra >= 65 && letra <= 70) || (letra >= 61 && letra <= 66)) {
+			this.consumoEnergetico = letra;
+		} else {
+			this.consumoEnergetico = CNSMO_ENRG;
+		}
+	}
+
 	private void comprobarColor(String color) {
 
 		String colores[] = { "blanco", "negro", "rojo", "azul", "gris" };
@@ -81,5 +89,5 @@ public class Electrodomestico {
 	public void setPeso(int peso) {
 		this.peso = peso;
 	}
-	
+
 }
