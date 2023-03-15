@@ -51,12 +51,60 @@ public class Electrodomestico {
 	}
 
 	private void comprobarColor(String color) {
-
 		String colores[] = { "blanco", "negro", "rojo", "azul", "gris" };
 		boolean existe = Arrays.asList(colores).contains(color.toLowerCase());
 		this.color = existe ? color : COLOR_BSE;
-
 	}
+
+	public double precioFinal() {
+		double precioFinal = 0;
+		
+		switch (consumoEnergetico) {
+		case 'A':
+		case 'a':
+			precioFinal += 100;
+			break;
+		case 'B':
+		case 'b':
+			precioFinal += 80;
+			break;
+		case 'C':
+		case 'c':
+			precioFinal += 60;
+			break;
+		case 'D':
+		case 'd':
+			precioFinal += 50;
+			break;
+		case 'E':
+		case 'e':
+			precioFinal += 30;
+			break;
+		case 'F':
+		case 'f':
+			precioFinal += 10;
+			break;
+		default:
+			precioFinal += 10;
+			break;
+		}
+
+		if (peso >= 0 && peso <= 19) {
+			precioFinal += 10;
+		} else if (peso >= 20 && peso <= 49) {
+			precioFinal += 50;
+		} else if (peso >= 50 && peso <= 79) {
+			precioFinal += 80;
+		} else if (peso > 80) {
+			precioFinal += 100;
+		}
+		
+		precioFinal = precioBase + precioFinal;
+
+		return precioFinal;
+	}
+	
+	
 
 	public double getPrecioBase() {
 		return precioBase;
