@@ -16,8 +16,8 @@ public class Profesor extends Persona {
 	/**
 	 * @param materia
 	 */
-	public Profesor(String nombre, int edad, char sexo, String materia) {
-		super(nombre, edad, sexo);
+	public Profesor(String nombre, int edad, char sexo, boolean asistencia, String materia) {
+		super(nombre, edad, sexo, asistencia);
 		this.materia = materia;
 	}
 
@@ -30,7 +30,7 @@ public class Profesor extends Persona {
 	}
 
 	@Override
-	public boolean asistencia() {
+	public boolean estaPresente() {
 		int numAleatorio = (int) Math.floor(Math.random() * (0 - (100 + 1)) + (100 + 1));
 		return (numAleatorio < 20 ? false : true);
 	}
