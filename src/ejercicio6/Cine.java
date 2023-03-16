@@ -8,14 +8,28 @@ package ejercicio6;
  * 
  * Clase Java Cine que sólo tiene una sala.
  */
-public abstract class Cine {
-
-
+public class Cine {
+	
+	//Constantes
+	public final int NUMERO_SALAS = 1; 
+	
+	//Atributos
+		int numSalas;
+		int precio;
 		
-		//atributo numSalas
+		
+		Pelicula pelicula;
+		Sala sala;
+		Espectador espectador;
 		//sala
 		//pelicula
 		//espectador
-		//metodo Precio sala-pelicula
-	
+		
+		//metodo obtener Ticket sala-pelicula-espectador
+		public boolean obtenerTicket() (Sala sala , Pelicula pelicula , Espectador espectador) {
+			//TODO 
+			boolean requisitos;
+			
+			return requisitos;
+		}
 }
