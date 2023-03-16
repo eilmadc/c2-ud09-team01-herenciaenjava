@@ -143,6 +143,7 @@ public class Electrodomestico {
 				+ " / Color: " + color 
 				+ " / Consumo Energetico: " + consumoEnergetico 
 				+ " / Peso: " + peso + "kg"
+				+ " / Precio final: " + precioFinal() + "€"
 				+ "\n----------------------";
 	}
 

@@ -64,6 +64,7 @@ public class Lavadora extends Electrodomestico {
 				+ " / Color: " + color 
 				+ " / ConsumoEnergetico: " + consumoEnergetico
 				+ " / Peso: " + peso 
+				+ " / Precio final: " + precioFinal() + "€"
 				+  "\n----------------------";
 	}
 	

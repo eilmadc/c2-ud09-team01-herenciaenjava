@@ -53,11 +53,9 @@ public class mainApp {
 			}
 			if (electrodomestico[i] instanceof Lavadora) {
 				totalLavadoras = totalLavadoras + electrodomestico[i].precioFinal();
-				totalElectrodomesticos = totalElectrodomesticos + electrodomestico[i].precioFinal();
 			}
 			if (electrodomestico[i] instanceof Television) {
 				totalTelevisores = totalTelevisores + electrodomestico[i].precioFinal();
-				totalElectrodomesticos = totalElectrodomesticos + electrodomestico[i].precioFinal();
 			}
 
 			System.out.println((i + 1) + ": " + electrodomestico[i].toString());
