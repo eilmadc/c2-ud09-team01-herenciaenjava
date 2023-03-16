@@ -3,7 +3,7 @@
  */
 package ejercicio5;
 
-import java.util.Random;
+
 
 /**
  * @author Team01 (Elena, Palmira, Paul)
@@ -31,7 +31,7 @@ public class Profesor extends Persona {
 
 	@Override
 	public boolean estaPresente() {
-		int numAleatorio = (int) Math.floor(Math.random() * (0 - (100 + 1)) + (100 + 1));
+		int numAleatorio = Utils.generarRandom(0, 100);
 		return (numAleatorio < 20 ? false : true);
 	}
 }
