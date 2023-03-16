@@ -24,6 +24,7 @@ public class Raices {
 
 	// El enunciado dice que si el discriminante es mayor o igual a 0 tiene 2
 	// soluciones, es decir, true;
+	// He decidido que el enunciado debia estar mal. Cambio y pongo que la condición sea mayor a 0.
 	public boolean tieneRaices() {
 		return this.getDiscriminante() > 0;
 
