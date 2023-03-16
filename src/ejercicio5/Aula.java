@@ -9,8 +9,12 @@ package ejercicio5;
  */
 public class Aula {
 	
+	//Creo una constante para determinar el maximo de alumnos en una clase
+	private static int MAX_ESTUDIANTES = 25;
+	
 	private int id;
-	private int MaxEstudiantes;
+	private int numEstudiantes;
 	private String asignatura;
+	
 
 }

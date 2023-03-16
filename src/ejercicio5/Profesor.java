@@ -10,22 +10,22 @@ import java.util.Random;
  *
  */
 public class Profesor extends Persona {
-
+	public static final String[] ASIGNATURAS = { "Matematicas", "Filosofia", "Fisica" };
 	private String materia;
-
-	public String getMateria() {
-		return materia;
-	}
-
-	public void setMateria(String materia) {
-		this.materia = materia;
-	}
 
 	/**
 	 * @param materia
 	 */
 	public Profesor(String nombre, int edad, char sexo, String materia) {
 		super(nombre, edad, sexo);
+		this.materia = materia;
+	}
+
+	public String getMateria() {
+		return materia;
+	}
+
+	public void setMateria(String materia) {
 		this.materia = materia;
 	}
 
