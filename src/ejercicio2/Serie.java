@@ -7,20 +7,21 @@ package ejercicio2;
  * @author Team01 (Elena, Palmira, Paul)
  *
  */
-public class Serie {
+public class Serie implements Entregable{
+	
 	protected final static int TEMPORADAS_BASE = 3;
 	protected final static boolean ENTREGADO_BASE = false;
 
 	protected String titulo;
 	protected int numeroTemporadas;
-	protected boolean entergado;
+	protected boolean entregado;
 	protected String genero;
 	protected String creador;
 
 	public Serie() {
 		this.titulo = "";
 		this.numeroTemporadas = TEMPORADAS_BASE;
-		this.entergado = ENTREGADO_BASE;
+		this.entregado = ENTREGADO_BASE;
 		this.genero = "";
 		this.creador = "";
 	}
@@ -28,7 +29,7 @@ public class Serie {
 	public Serie(String titulo, String creador) {
 		this.titulo = titulo;
 		this.numeroTemporadas = TEMPORADAS_BASE;
-		this.entergado = ENTREGADO_BASE;
+		this.entregado = ENTREGADO_BASE;
 		this.genero = "";
 		this.creador = "";
 	}
@@ -71,15 +72,41 @@ public class Serie {
 	public void setCreador(String creador) {
 		this.creador = creador;
 	}
+	
+	public void entregar() {
+		entregado = true;
+	}
+
+	public void devolver() {
+		entregado = false;
+	}
+
+	public boolean isEntregado() {
+		if (entregado) {
+			return true;
+		}
+		return false;
+	}
+
+	public String compareTo(Object a) {
+		Serie serie = (Serie) a;
+        if (this.numeroTemporadas > serie.getNumeroTemporadas()) {
+            return "mayor";
+        } else if (this.numeroTemporadas < serie.getNumeroTemporadas()) {
+            return "menor";
+        } else {
+            return "igual";
+        }
+	}
 
 	@Override
 	public String toString() {
 		return "SERIE: "
 				+ "\n- Título: " + titulo
-				+ "\nNúmero de temporadas: " + numeroTemporadas
-				+ "\nEntergado: " + entergado
-				+ "\nGénero: " + genero
-				+ "\nCreador: " + creador
+				+ "\n- Número de temporadas: " + numeroTemporadas
+				+ "\n- Entregado: " + entregado
+				+ "\n- Género: " + genero
+				+ "\n- Creador: " + creador
 				+ "\n---------------------";
 	}
 	

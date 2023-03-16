@@ -7,9 +7,9 @@ package ejercicio2;
  * @author Team01 (Elena, Palmira, Paul)
  *
  */
-public class Videojuego {
+public class Videojuego implements Entregable{
 	
-	protected final static int HORAS_ESTIMADAS_BASE = 10;
+	protected final static double HORAS_ESTIMADAS_BASE = 10;
 	protected final static boolean ENTREGADO_BASE = false;
 	
 	protected String titulo;
@@ -69,11 +69,37 @@ public class Videojuego {
 	public void setCompañia(String compañia) {
 		this.compañia = compañia;
 	}
+	
+	public void entregar() {
+		entregado = true;
+	}
+
+	public void devolver() {
+		entregado = false;
+	}
+
+	public boolean isEntregado() {
+		if (entregado) {
+			return true;
+		}
+		return false;
+	}
+
+	public String compareTo(Object a) {
+		Videojuego videojuego = (Videojuego) a;
+        if (this.horasEstimadas > videojuego.horasEstimadas) {
+            return "mayor";
+        } else if (this.horasEstimadas < videojuego.horasEstimadas) {
+            return "menor";
+        } else {
+            return "igual";
+        }
+	}
 
 	@Override
 	public String toString() {
 		return "Videojuego:" 
-				+ "\n- Título:" + titulo
+				+ "\n- Título: " + titulo
 				+ "\n- Horas estimadas: " + horasEstimadas
 				+ "\n- Entregado: " + entregado
 				+ "\n- Genero: " + genero
