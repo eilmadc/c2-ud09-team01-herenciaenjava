@@ -1,9 +1,13 @@
 /**
  * 
  */
-package ejercicio6;
+package ejercicio6.main;
 
 import java.util.Scanner;
+
+import ejercicio6.clases.Cine;
+import ejercicio6.clases.Espectador;
+import ejercicio6.clases.Pelicula;
 
 /**
  * @author  Team01 (Elena, Palmira, Paul)
@@ -17,7 +21,7 @@ public class MainApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		/* TODO: Generar simulacion: 
+		/** TODO: Generar simulacion: 
 				 - Muchos espectadores
 				 - sentados aletoriamente
 				 - espacios disponibles=true
@@ -36,13 +40,14 @@ public class MainApp {
 		Pelicula pelicula2 = new Pelicula("The Tree of Life", 133 , 13, "Terrence Malick");
 		Pelicula pelicula3 = new Pelicula("Dogville", 177, 16, "LarsVon Trier");
 		
-		/*--Creacion Cine/sesion--*/
+		/**--Creacion Cine/sesion--*/
 		Cine entrada1 = new Cine();
 		//Creo conjunto de asientos y lo inicializo
 		entrada1.asientos();
 		
 		/**--Obtener Tickets--*/
 		entrada1.obtenerTicket(pelicula1, espectador1);
+		
 		
 	}
 

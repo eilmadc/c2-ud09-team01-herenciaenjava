@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ejercicio6;
+package ejercicio6.clases;
 
 /**
  * @author Team01 (Elena, Palmira, Paul)

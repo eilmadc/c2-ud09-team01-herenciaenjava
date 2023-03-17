@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ejercicio6;
+package ejercicio6.clases;
 
 import java.util.ArrayList;
 
