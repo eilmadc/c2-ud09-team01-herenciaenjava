@@ -35,7 +35,8 @@ public class Raices {
 	public boolean tieneRaiz() {
 		return this.getDiscriminante() == 0;
 	}
-
+	
+	//Comprobamos si el problema tiene 1 raíz, 2 o ninuna
 	public void calcular() {
 		if (tieneRaices()) {
 			obtenerRaices();
@@ -46,7 +47,8 @@ public class Raices {
 		}
 
 	}
-
+	
+	//Si el problema tiene 2 raíces las calculamos y mostramos
 	public void obtenerRaices() {
 		double solucionPositiva = (-b + (Math.sqrt(getDiscriminante()))) / (2 * a);
 		double solucionNegativa = (-b - (Math.sqrt(getDiscriminante()))) / (2 * a);
@@ -54,7 +56,8 @@ public class Raices {
 		System.out.println("Solución 1: " + solucionPositiva);
 		System.out.println("Solución 2: " + solucionNegativa);
 	}
-
+	
+	//Si el problema tiene 1 raíz la calculamos y mostramos
 	public void obtenerRaiz() {
 		double solucionUnica = (-b + (Math.sqrt(getDiscriminante()))) / (2 * a);
 		System.out.println("Tiene una solución: ");

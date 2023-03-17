@@ -87,7 +87,8 @@ public class Serie implements Entregable{
 		}
 		return false;
 	}
-
+	
+	//Comparamos la serie con el mayor número de temporadas
 	public String compareTo(Object a) {
 		Serie serie = (Serie) a;
         if (this.numeroTemporadas > serie.getNumeroTemporadas()) {
