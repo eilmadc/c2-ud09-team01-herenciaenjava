@@ -11,15 +11,23 @@ public class Espectador {
 
 	// TODO: Atributos
 
-	private int nombre;// nombre
+	private String nombre;// nombre
 	private int edad;// edad
-	private int dinero; // dinero
+	private double dinero; // dinero
 	
+	/**
+	 * 
+	 */
+	public Espectador(String nombre, int edad, double dinero) {
+		this.nombre=nombre;
+		this.edad = edad;
+		this.dinero = dinero;
+	}
 	// 
 	/**
 	 * @return the nombre
 	 */
-	public int getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 	/**
@@ -31,7 +39,7 @@ public class Espectador {
 	/**
 	 * @return the dinero
 	 */
-	public int getDinero() {
+	public double getDinero() {
 		return dinero;
 	}
 }
