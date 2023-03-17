@@ -21,14 +21,13 @@ public class Cine {
 	protected char columna = 'A';
 	protected int fila;
 	protected boolean disponible = true;
-
-	// Atributos
-
+	
 	double precio;
+	boolean requisitos;	
+	
 	Pelicula pelicula;
 	Espectador espectador;
 
-	boolean requisitos;
 
 	ArrayList<Ticket> conjuntoAsiento = new ArrayList<Ticket>();
 
@@ -59,13 +58,12 @@ public class Cine {
 		if (re1) {
 			//Verificar si hay espacio disponible
 			if(esDisponible()){
-				
+				posicionDisponible
 					
 			};
 			
 		} else {
-			
-
+			System.out.println("El usuario no cumple requisitos. No puede comprar entrada.");
 		}
 
 		// (sala)
