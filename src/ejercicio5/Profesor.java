@@ -10,16 +10,21 @@ package ejercicio5;
  *
  */
 public class Profesor extends Persona {
-	public static final String[] ASIGNATURAS = { "Matematicas", "Filosofia", "Fisica" };
+	
 	private String materia;
 
 	/**
 	 * @param materia
 	 */
+	//Constructores
+	public Profesor() {
+		
+	}
 	public Profesor(String nombre, int edad, char sexo, boolean asistencia, String materia) {
 		super(nombre, edad, sexo, asistencia);
 		this.materia = materia;
 	}
+	//Getters y Setters
 
 	public String getMateria() {
 		return materia;
@@ -29,6 +34,7 @@ public class Profesor extends Persona {
 		this.materia = materia;
 	}
 
+	//Metodo sobreescrito de la clase abstracta Persona. 
 	@Override
 	public boolean estaPresente() {
 		int numAleatorio = Utils.generarRandom(0, 100);
