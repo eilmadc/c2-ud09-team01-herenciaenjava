@@ -13,13 +13,14 @@ public class Estudiantes extends Persona {
 
 	private double calificacion;
 
+	//Constructor
 	public Estudiantes() {
 		super();
 		// Determinamos la nota de los alumnos aleatoriamente
-		calificacion = Math.round(Utils.generarRandomReal(0, 10)*100d)/100d;
+		calificacion = Math.round(Utils.generarRandomReal(0, 10) * 100d) / 100d;
 		// Determinamos la edad de los alumnos entre un rango de edad razonable.
 		super.setEdad(Utils.generarRandom(18, 60));
-		
+
 	}
 
 	public double getCalificacion() {
@@ -35,7 +36,7 @@ public class Estudiantes extends Persona {
 	 */
 
 	@Override
-	//En este caso como la asistencia es del 50% he decidido usar un nextBoolean()
+	// En este caso como la asistencia es del 50% he decidido usar un nextBoolean()
 	public boolean estaPresente() {
 		return new Random().nextBoolean();
 	}

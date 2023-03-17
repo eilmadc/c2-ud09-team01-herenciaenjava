@@ -8,19 +8,18 @@ package ejercicio5;
  *
  */
 public class Profesor extends Persona {
-	public static final String[] ASIGNATURAS = { "Matematicas", "Filosofia", "Fisica" };
+	private static final String[] ASIGNATURAS = { "Matematicas", "Filosofia", "Fisica" };
 	private String asignatura;
 
 	/**
 	 * @param materia
 	 */
-	// Constructores
+	// Constructor
 	public Profesor() {
 		super();
 		super.setEdad(Utils.generarRandom(22, 67));
 		asignatura = ASIGNATURAS[Utils.generarRandom(0, 2)];
 	}
-
 
 	// Getters y Setters
 
@@ -32,9 +31,11 @@ public class Profesor extends Persona {
 		this.asignatura = asignatura;
 	}
 
-	
 	@Override
-	// Metodo sobreescrito de la clase abstracta Persona para comprobar asistencia del Profesor
+	/*
+	 * Metodo sobreescrito de la clase abstracta Persona para comprobar asistencia
+	 * del Profesor
+	 */
 	public boolean estaPresente() {
 		int numAleatorio = Utils.generarRandom(0, 100);
 		return (numAleatorio < 20 ? false : true);
