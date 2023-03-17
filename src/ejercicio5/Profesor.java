@@ -11,27 +11,28 @@ package ejercicio5;
  */
 public class Profesor extends Persona {
 	
-	private String materia;
+	private String asignatura;
 
 	/**
 	 * @param materia
 	 */
 	//Constructores
 	public Profesor() {
-		
+		super();
+		super.setEdad(Utils.generarRandom(22, 67));
 	}
-	public Profesor(String nombre, int edad, char sexo, boolean asistencia, String materia) {
+	public Profesor(String nombre, int edad, char sexo, boolean asistencia, String asignatura) {
 		super(nombre, edad, sexo, asistencia);
-		this.materia = materia;
+		this.asignatura = asignatura;
 	}
 	//Getters y Setters
 
-	public String getMateria() {
-		return materia;
+	public String getAsignatura() {
+		return asignatura;
 	}
 
-	public void setMateria(String materia) {
-		this.materia = materia;
+	public void setAsignatura(String asignatura) {
+		this.asignatura = asignatura;
 	}
 
 	//Metodo sobreescrito de la clase abstracta Persona. 

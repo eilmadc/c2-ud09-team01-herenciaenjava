@@ -15,8 +15,11 @@ public abstract class Persona {
 	private int edad;
 	private char sexo;
 	private boolean asistencia;
-	private final String[] NOMBRES = { "Elena", "Paul", "Palmira", "Marc R.", "Marc S.", "Paula", "Roger", "Aitor",
-			"Arnau", "Alberto", "Javier", "Josep Maria", "Alejandro", "Camila", "Joan", "Francisco", "Andrea" };
+	// genero un array de nombres de hombre
+	private final String[] NOMBRES_MASCULINOS = { "Paul", "Marc R.", "Marc S.", "Paula", "Roger", "Aitor", "Arnau",
+			"Alberto", "Javier", "Josep Maria", "Alejandro", "Joan", "Francisco" };
+	// genero un array de nombres de mujer
+	private final String[] NOMBRES_FEMENINOS = { "Elena", "Palmira", "Camila", "Andrea" };
 
 	/**
 	 * @param nombre
@@ -32,6 +35,16 @@ public abstract class Persona {
 	}
 
 	public Persona() {
+		// Determinamos aleatoriamente si es hombreo mujer.
+		int escogerSexo = Utils.generarRandom(0, 1);
+		// 0 = masculino
+		if (escogerSexo == 0) {
+			nombre = NOMBRES_MASCULINOS[Utils.generarRandom(0, 12)];
+			sexo = 'H';
+		} else {
+			nombre = NOMBRES_FEMENINOS[Utils.generarRandom(0, 3)];
+			sexo = 'M';
+		}
 		estaPresente();
 	}
 
@@ -67,6 +80,8 @@ public abstract class Persona {
 		this.sexo = sexo;
 	}
 
+	// Este metodo lo implemntaremos y codificaremos en las clases hijas Estudiante
+	// y Profesor
 	public abstract boolean estaPresente();
 
 }

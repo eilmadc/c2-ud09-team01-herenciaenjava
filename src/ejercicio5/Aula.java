@@ -33,6 +33,24 @@ public class Aula {
 		}
 	}
 
+	// Metodo para determinar si hay clase o no
+	public boolean hayClase() {
+		if (!profesor.estaPresente()) {
+			System.out.println("El profesor no está. No hay clase");
+			return false;
+		} else if (!asistenciaEstudiantes()) {
+			System.out.println("No hay suficientes alumnos. No hay classe");
+			return false;
+		} else if (!profesor.getAsignatura().equals(asignatura)) {
+			System.out.println("El aula no coincide con la materia del profesor. No se puede hacer clase");
+			return false;
+		} else {
+			System.out.println("Hay clase");
+			return true;
+		}
+
+	}
+	//Recorremos el array y vemos si la asistencia llega al 50%
 	public boolean asistenciaEstudiantes() {
 		int asistencia = 0;
 		for (int i = 0; i < alumnos.length; i++) {
