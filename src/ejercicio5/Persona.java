@@ -16,35 +16,30 @@ public abstract class Persona {
 	private char sexo;
 	private boolean asistencia;
 	// genero un array de nombres de hombre
-	private final String[] NOMBRES_MASCULINOS = { "Paul", "Marc R.", "Marc S.", "Paula", "Roger", "Aitor", "Arnau",
+	private final String[] NOMBRES_MASCULINOS = { "Paul", "Marc R.", "Marc S.", "Roger", "Aitor", "Arnau",
 			"Alberto", "Javier", "Josep Maria", "Alejandro", "Joan", "Francisco" };
 	// genero un array de nombres de mujer
-	private final String[] NOMBRES_FEMENINOS = { "Elena", "Palmira", "Camila", "Andrea" };
+	private final String[] NOMBRES_FEMENINOS = { "Elena", "Palmira", "Camila", "Andrea", "Paula", "Carme", "Teresa", "Maria",
+			"Julia", "Aida", "Emma", "Ariadna", "Miriam"};
 
 	/**
 	 * @param nombre
 	 * @param edad
 	 * @param sexo
 	 */
-	public Persona(String nombre, int edad, char sexo, boolean asistencia) {
-		this.nombre = nombre;
-		this.edad = edad;
-		this.sexo = sexo;
-		this.asistencia = asistencia;
-
-	}
 
 	public Persona() {
 		// Determinamos aleatoriamente si es hombreo mujer.
-		int escogerSexo = Utils.generarRandom(0, 1);
+		int escogerSexo = Utils.generarRandom(0, 2);
 		// 0 = masculino
 		if (escogerSexo == 0) {
 			nombre = NOMBRES_MASCULINOS[Utils.generarRandom(0, 12)];
 			sexo = 'H';
 		} else {
-			nombre = NOMBRES_FEMENINOS[Utils.generarRandom(0, 3)];
+			nombre = NOMBRES_FEMENINOS[Utils.generarRandom(0, 12)];
 			sexo = 'M';
 		}
+		//Determinamos si esta presente
 		estaPresente();
 	}
 

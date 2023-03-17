@@ -3,29 +3,26 @@
  */
 package ejercicio5;
 
-
-
 /**
  * @author Team01 (Elena, Palmira, Paul)
  *
  */
 public class Profesor extends Persona {
-	
+	public static final String[] ASIGNATURAS = { "Matematicas", "Filosofia", "Fisica" };
 	private String asignatura;
 
 	/**
 	 * @param materia
 	 */
-	//Constructores
+	// Constructores
 	public Profesor() {
 		super();
 		super.setEdad(Utils.generarRandom(22, 67));
+		asignatura = ASIGNATURAS[Utils.generarRandom(0, 2)];
 	}
-	public Profesor(String nombre, int edad, char sexo, boolean asistencia, String asignatura) {
-		super(nombre, edad, sexo, asistencia);
-		this.asignatura = asignatura;
-	}
-	//Getters y Setters
+
+
+	// Getters y Setters
 
 	public String getAsignatura() {
 		return asignatura;
@@ -35,8 +32,9 @@ public class Profesor extends Persona {
 		this.asignatura = asignatura;
 	}
 
-	//Metodo sobreescrito de la clase abstracta Persona. 
+	
 	@Override
+	// Metodo sobreescrito de la clase abstracta Persona para comprobar asistencia del Profesor
 	public boolean estaPresente() {
 		int numAleatorio = Utils.generarRandom(0, 100);
 		return (numAleatorio < 20 ? false : true);

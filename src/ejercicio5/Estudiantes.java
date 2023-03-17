@@ -15,13 +15,11 @@ public class Estudiantes extends Persona {
 
 	public Estudiantes() {
 		super();
-		calificacion = (int) Math.floor(Math.random() * (0 - (10 + 1)) + (10 + 1));
-		super.setEdad((int) Math.floor(Math.random() * (12 - (18 + 1)) + (18 + 1)));
-	}
-
-	public Estudiantes(String nombre, int edad, char sexo, boolean asistencia, double calificacion) {
-		super(nombre, edad, sexo, asistencia);
-		this.calificacion = calificacion;
+		// Determinamos la nota de los alumnos aleatoriamente
+		calificacion = Math.round(Utils.generarRandomReal(0, 10)*100d)/100d;
+		// Determinamos la edad de los alumnos entre un rango de edad razonable.
+		super.setEdad(Utils.generarRandom(18, 60));
+		
 	}
 
 	public double getCalificacion() {
@@ -37,8 +35,14 @@ public class Estudiantes extends Persona {
 	 */
 
 	@Override
+	//En este caso como la asistencia es del 50% he decidido usar un nextBoolean()
 	public boolean estaPresente() {
 		return new Random().nextBoolean();
+	}
+
+	@Override
+	public String toString() {
+		return "Estudiante: " + super.getNombre() + ", sexo: " + super.getSexo() + " nota: " + getCalificacion();
 	}
 
 }
