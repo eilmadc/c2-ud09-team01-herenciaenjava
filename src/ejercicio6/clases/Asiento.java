@@ -70,4 +70,12 @@ public class Asiento {
 		this.disponible = disponible;
 	}
 
+	@Override
+	public String toString() {
+		return "Asiento [id=" + id + ", disponible=" + disponible + "]";
+	}
+
+
+
+	
 }

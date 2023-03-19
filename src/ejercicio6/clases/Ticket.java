@@ -2,18 +2,16 @@
  * 
  */
 package ejercicio6.clases;
-
 /**
- * @author elena-01
+ * @author @author Team01 (Elena, Palmira, Paul)
  *
  */
 public class Ticket {
 
-	//Atributos
-	String nombreEspectador;
-	String peliculaTicket;
+	// Atributos
+	Espectador espectador;
+	Pelicula pelicula;
 	String codAsiento;
-
 
 	/**
 	 * @param nombreEspectador
@@ -21,21 +19,29 @@ public class Ticket {
 	 */
 	public Ticket(Espectador espectador, Pelicula pelicula) {
 		super();
-		this.nombreEspectador = espectador.getNombre();
-		this.peliculaTicket = pelicula.getTitulo();
+		this.espectador = espectador;
+		this.pelicula = pelicula;
 	}
 
 	/**
-	 * Constructor al que le pasamos por parametro un objeto Espectador, Pelicula, Asiento
+	 * Constructor al que le pasamos por parametro un objeto Espectador, Pelicula,
+	 * Asiento
 	 * 
 	 * @param disponible
 	 * @param asiento
 	 * @param espectador
 	 * @param pelicula
 	 */
-	public Ticket( Asiento asiento, Espectador espectador, Pelicula pelicula) {
-		this.codAsiento = asiento.getId();
-		this.nombreEspectador =espectador.getNombre();
-		this.peliculaTicket = pelicula.getTitulo();
+	public Ticket(String asiento, Espectador espectador, Pelicula pelicula) {
+		this.codAsiento = asiento;
+		this.espectador = espectador;
+		this.pelicula = pelicula;
 	}
+
+	@Override
+	public String toString() {
+		return "Ticket [espectador=" + espectador.getNombre() + ", pelicula=" + pelicula.getTitulo() + ", codAsiento="
+				+ codAsiento + "]";
+	}
+
 }

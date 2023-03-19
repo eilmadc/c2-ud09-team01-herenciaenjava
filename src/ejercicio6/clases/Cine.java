@@ -13,31 +13,67 @@ import java.util.ArrayList;
 public class Cine {
 
 	// ------- Constantes -----------------
-	// final static int NUMERO_SALAS = 1;
 	final static int FILAS = 8;
 	final static int COLUMNAS = 9;
-	final static double PRECIO = 6;
 
 	// ------- Atributos-------------------
 
-	boolean requisitos;
+	// BORRARboolean requisitos;
 
 	// Lista con el conjunto de asientos
+	double precio;
 	ArrayList<Asiento> conjuntoAsiento = new ArrayList<Asiento>();
-
-	// Lista con el conjunto de Tickets
-	ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-
-	// Objetos
 	Pelicula pelicula;
-	Espectador espectador;
-	Asiento asiento;
-	Cine cine;
 
 	// ------- Constructores -----------------
 
-	public Cine(Pelicula pelicula, Espectador espectador) {
+	public Cine(Pelicula pelicula, double precio) {
+		this.pelicula = pelicula;
+		this.precio = precio;
 		asientos();
+	}
+
+	// ------------ Getters y Setters -------------------
+	/**
+	 * @return the precio
+	 */
+	public double getPrecio() {
+		return precio;
+	}
+
+	/**
+	 * @param precio the precio to set
+	 */
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	/**
+	 * @return the conjuntoAsiento
+	 */
+	public ArrayList<Asiento> getConjuntoAsiento() {
+		return conjuntoAsiento;
+	}
+
+	/**
+	 * @param conjuntoAsiento the conjuntoAsiento to set
+	 */
+	public void setConjuntoAsiento(ArrayList<Asiento> conjuntoAsiento) {
+		this.conjuntoAsiento = conjuntoAsiento;
+	}
+
+	/**
+	 * @return the pelicula
+	 */
+	public Pelicula getPelicula() {
+		return pelicula;
+	}
+
+	/**
+	 * @param pelicula the pelicula to set
+	 */
+	public void setPelicula(Pelicula pelicula) {
+		this.pelicula = pelicula;
 	}
 
 	// ------- Metodos -----------------
@@ -50,75 +86,33 @@ public class Cine {
 		}
 	}
 
-	// Metodo para obtenerEntrada
-	public void obtenerTicket(Pelicula pelicula, Espectador espectador) {
-
-		boolean req = false;
-
-		// Si cumple requisitos
-		if (cumpleRequisitos(req, pelicula, espectador)) {
-			// Verificar si hay espacio disponible
-			esDisponible();
-		} else
-			System.out.println("El usuario no cumple requisitos. No puede comprar entrada.");
-	}
-
-	public boolean cumpleRequisitos(boolean req1, Pelicula pelicula, Espectador espectador) {
-
-		/*--Chequea si el espectador tiene dinero para la entrada
-		 * si tiene la edad minima de para ver la pelicula
-		 * si hay asiento disponible
-		 */
-		if (espectador.getDinero() >= PRECIO && espectador.getEdad() >= pelicula.getEdadMinima()) {
-			req1 = true;
-		} else {
-			req1 = false;
-			if (espectador.getDinero() < PRECIO)
-				System.out.println("El espectador no tiene dinero suficiente");
-			else
-				System.out.println("El espectador no tiene edad minima para ver pelicula");
-		}
-		return req1;
-	}
-
 	// Comprueba si hay algun asiento disponible
-	public boolean esDisponible() {
+	public String esDisponible() {
 
-		boolean disponible = false;
-		int contadorAsientosDisponibles = 0;
+		boolean asientoDisponible = true;
+		int cont = 0;
+		// Inicializacion de posicion de asiento random valido a -1
+		// En el caso que recorrael conjunto de asientos y no encuentre
+		// un asiento disponible, mantendra un valor inferior a 0
+		int posicionAleatoria = -1;
 
-		for (int i = 0; i < FILAS; i++) {
-			for (int j = 0; j < COLUMNAS; i++) {
-				do {
-					if (conjuntoAsiento.get(j).getDisponible()) {
-						contadorAsientosDisponibles++;
-					}
-				} while (!conjuntoAsiento.get(j).getDisponible());
+		do {
+			// Calcula posicion random del arrayList del conjunto de asientos
+			// lo guarda en la posicion posicionAleatoria
+			posicionAleatoria = (int) ( Math.random() * conjuntoAsiento.size());
+
+			if (conjuntoAsiento.get(posicionAleatoria).getDisponible()) {
+				// reservaAsiento();
+				conjuntoAsiento.get(posicionAleatoria).setDisponible(false);
+				asientoDisponible = false;
+
 			}
-			if (contadorAsientosDisponibles > 0)
-				reservaAsiento();
-			else
-				System.out.println("No hay asientos disponibles");
-		}
-		return disponible;
+			cont++;
+		} while (!asientoDisponible && cont < conjuntoAsiento.size());
+
+		// Devuelve el id del asiento en la posicion random, si hay asientos disponibles
+		// sino, devolvera ""
+		return ((posicionAleatoria >= 0) ? conjuntoAsiento.get(posicionAleatoria).getId() : "");
 	}
 
-	// Obtener posicion (letra-numero) disponible
-	// Devuelve posicion asiento disponible
-	public String reservaAsiento() {
-		String posicion = "";
-
-		for (int i = 0; i < FILAS; i++) {
-			for (int j = 0; j < COLUMNAS; i++) {
-				do {
-					if (conjuntoAsiento.get(j).getDisponible()) {
-
-						tickets.add(new Ticket(asiento, espectador, pelicula));
-						
-					}
-				} while (!conjuntoAsiento.get(j).getDisponible());
-			}
-		}
-		return posicion;
-	}
 }
