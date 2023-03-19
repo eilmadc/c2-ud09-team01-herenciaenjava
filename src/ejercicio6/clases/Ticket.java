@@ -47,7 +47,7 @@ public class Ticket {
 				"\n Pelicula : " + pelicula.getTitulo().toUpperCase() +
 				"\n Director : " + pelicula.getDirector()+
 				"\n Duracion : " + pelicula.getDuracion()+
-				"\n Duracion : " + pelicula.getEdadMinima()+
+				"\n Edad Minima : " + pelicula.getEdadMinima()+
 				"\n--      PATIO: " + codAsiento + "     --"+ 
 				"\n ----------------------------------------";
 	}
