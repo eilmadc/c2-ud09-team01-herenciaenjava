@@ -2,6 +2,7 @@
  * 
  */
 package ejercicio6.clases;
+
 /**
  * @author @author Team01 (Elena, Palmira, Paul)
  *
@@ -40,8 +41,15 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [espectador=" + espectador.getNombre() + ", pelicula=" + pelicula.getTitulo() + ", codAsiento="
-				+ codAsiento + "]";
+		return "\n ----------------------------------------"+
+				"--     TICKET : Sala 01     --" + 
+				"\n Espectador :" + espectador.getNombre() +
+				"\n Pelicula : " + pelicula.getTitulo().toUpperCase() +
+				"\n Director : " + pelicula.getDirector()+
+				"\n Duracion : " + pelicula.getDuracion()+
+				"\n Duracion : " + pelicula.getEdadMinima()+
+				"\n--      PATIO: " + codAsiento + "     --"+ 
+				"\n ----------------------------------------";
 	}
 
 }

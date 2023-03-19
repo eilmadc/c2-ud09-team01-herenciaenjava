@@ -18,8 +18,6 @@ public class Cine {
 
 	// ------- Atributos-------------------
 
-	// BORRARboolean requisitos;
-
 	// Lista con el conjunto de asientos
 	double precio;
 	ArrayList<Asiento> conjuntoAsiento = new ArrayList<Asiento>();

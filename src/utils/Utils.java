@@ -78,6 +78,21 @@ public class Utils {
 		System.out.println("\n------- " + mensaje + " -------\n");
 	}
 	
+	//mostrar mensaje
+	public void imprimeRayas(String mensaje) {
+		System.out.println("\n--    " + mensaje + "     --\n");
+	}
+	
+	//mostrar mensaje
+	public void imprimeLinea() {
+		System.out.println("\n__________________________________________________________\n");
+	}
+	
+	//mostrar mensaje
+		public void imprimeLineaMensaje(String mensaje) {
+			System.out.println("\n-----------------         "+ mensaje +"           --------------\n");
+		}
+	
 	//Devuelve double o float por pantalla con 2 posiciones.
 	public String dosPos(double numero) {
 		String x = String.format("%.2f", numero);
