@@ -15,12 +15,14 @@ public class MainApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		/**
-		 * TODO: Generar simulacion: - Muchos espectadores - sentados aletoriamente -
-		 * espacios disponibles=true - ?duda:sentar a los espectadores de uno en uno
-		 */
 
+
+		//Se abre la venta de entradas para el cine.
 		VentaEntradas ventaEntrada = new VentaEntradas();
+		
+		/**
+		 * Mostrar Listado de Tickets
+		 */
 		ventaEntrada.ticketsToString();
 	}
 

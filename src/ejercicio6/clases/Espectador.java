@@ -9,21 +9,25 @@ package ejercicio6.clases;
  */
 public class Espectador {
 
-	// TODO: Atributos
+	//------------- Atributos -------------------
 
 	private String nombre;// nombre
 	private int edad;// edad
 	private double dinero; // dinero
 	
+	
+	//------------ Constructor --------------------
 	/**
-	 * 
+	 * Constructor por defecto
+	 * @param nombre, edad, dinero
 	 */
 	public Espectador(String nombre, int edad, double dinero) {
 		this.nombre=nombre;
 		this.edad = edad;
 		this.dinero = dinero;
 	}
-	// 
+	
+	// ------------ Getters --------------------------- 
 	/**
 	 * @return the nombre
 	 */

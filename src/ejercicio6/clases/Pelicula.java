@@ -30,7 +30,7 @@ public class Pelicula {
 		this.director = director;
 	}
 
-	// Getters
+	// ------------------ Getters ----------------------------
 	/**
 	 * @return the titulo
 	 */

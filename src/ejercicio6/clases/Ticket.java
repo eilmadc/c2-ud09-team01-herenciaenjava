@@ -9,12 +9,15 @@ package ejercicio6.clases;
  */
 public class Ticket {
 
-	// Atributos
-	Espectador espectador;
-	Pelicula pelicula;
-	String codAsiento;
+	// --------------- Atributos ------------------
+	private Espectador espectador;
+	private Pelicula pelicula;
+	private String codAsiento;
 
-	/**
+	
+	
+	// --------------- Constructores ------------------
+	/** 
 	 * @param nombreEspectador
 	 * @param peliculaTicket
 	 */

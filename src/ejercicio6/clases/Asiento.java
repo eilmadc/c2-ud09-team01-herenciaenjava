@@ -4,16 +4,16 @@
 package ejercicio6.clases;
 
 /**
- * @author elena-01
+ * @author Team01 (Elena, Palmira, Paul)
  *
  */
 public class Asiento {
-	//-----------Constantes-------------
+	// -----------Constantes-------------
 	final static int CONVERSION_ASCII = 65;
 
-	//-----------Atributos-------------
-	String id;
-	Boolean disponible;
+	// -----------Atributos-------------
+	private String id;
+	private Boolean disponible;
 
 	/**
 	 * Constructor por defecto
@@ -35,9 +35,9 @@ public class Asiento {
 	 */
 	public Asiento(int fila, int columna) {
 		super();
-		//Para realizar la conversion a letra char sumamos 65 que se corresponde
-		//al valor "A" de la tabla ASCII
-		this.id = "" + fila + (char) (columna+CONVERSION_ASCII);
+		// Para realizar la conversion a letra char sumamos 65 que se corresponde
+		// al valor "A" de la tabla ASCII
+		this.id = "" + fila + (char) (columna + CONVERSION_ASCII);
 		this.disponible = true;
 	}
 
@@ -74,8 +74,4 @@ public class Asiento {
 	public String toString() {
 		return "Asiento [id=" + id + ", disponible=" + disponible + "]";
 	}
-
-
-
-	
 }

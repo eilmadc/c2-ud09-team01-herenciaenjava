@@ -25,8 +25,6 @@ public class VentaEntradas {
 	private ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
 	/** --Creacion Cine/sesion-- */
-	// Creo conjunto de asientos y lo inicializo
-
 	private Cine sesionCine;
 
 	public VentaEntradas() {
@@ -44,6 +42,9 @@ public class VentaEntradas {
 		}
 	}
 
+	/*
+	 * Rellena ArrayList de Espectadores
+	 */
 	public void generaEspectadores() {
 		/** --Creacion Espectadores -- */
 		espectadores.add(new Espectador("Ana", 19, 23));
@@ -52,6 +53,9 @@ public class VentaEntradas {
 		espectadores.add(new Espectador("Maria", 17, 5));
 	}
 
+	/*
+	 * Crea Pelicula
+	 */
 	public Pelicula generaPeliculas() {
 		/** --Creacion Peliculas -- */
 		Pelicula pelicula1 = new Pelicula("Matrix", 131, 16, "Hermanas Wachowski");
@@ -62,7 +66,7 @@ public class VentaEntradas {
 		return pelicula1;
 	}
 
-	// Metodo para obtenerEntrada
+	// Metodo para obtenerEntrada por el espectador.
 	public void pidoTicket(Espectador espectador) {
 
 		boolean req = false;
@@ -83,11 +87,15 @@ public class VentaEntradas {
 					+ " no cumple requisitos. No puede comprar entrada");
 	}
 
+	/*
+	 * Verificacion de requisitos para la compra de una entrada en el cine
+	 */
 	public boolean cumpleRequisitos(boolean req1, Pelicula pelicula, Espectador espectador) {
 
-		/*--Chequea si el espectador tiene dinero para la entrada
-		 * si tiene la edad minima de para ver la pelicula
-		 * si hay asiento disponible
+		/*--Chequea:
+		 * - Si el espectador tiene dinero para la entrada
+		 * - Si tiene la edad minima de para ver la pelicula
+		 * - Si hay asiento disponible
 		 */
 		if (espectador.getDinero() >= precio && espectador.getEdad() >= pelicula.getEdadMinima()) {
 			req1 = true;
@@ -101,11 +109,13 @@ public class VentaEntradas {
 		return req1;
 	}
 
-	// Impresion de Tickets por pantalla
+	/*
+	 * Impresion de Tickets por pantalla
+	 */
 	public void ticketsToString() {
 
 		utils.imprimeLinea();
-		utils.imprimeLineaMensaje(cc.ANSI_FBGREEN+"TICKETS"+ cc.ANSI_RESET);
+		utils.imprimeLineaMensaje(cc.ANSI_FBGREEN + "TICKETS" + cc.ANSI_RESET);
 		utils.imprimeLinea();
 		Iterator<Ticket> it = tickets.iterator();
 		Ticket element;
@@ -113,7 +123,6 @@ public class VentaEntradas {
 			element = it.next();
 
 			System.out.println(cc.ANSI_BGREEN + (element.toString()) + cc.ANSI_RESET);
-
 		}
 	}
 

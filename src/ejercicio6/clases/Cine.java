@@ -19,9 +19,9 @@ public class Cine {
 	// ------- Atributos-------------------
 
 	// Lista con el conjunto de asientos
-	double precio;
-	ArrayList<Asiento> conjuntoAsiento = new ArrayList<Asiento>();
-	Pelicula pelicula;
+	private double precio;
+	private ArrayList<Asiento> conjuntoAsiento = new ArrayList<Asiento>();
+	private Pelicula pelicula;
 
 	// ------- Constructores -----------------
 
@@ -100,7 +100,7 @@ public class Cine {
 			posicionAleatoria = (int) ( Math.random() * conjuntoAsiento.size());
 
 			if (conjuntoAsiento.get(posicionAleatoria).getDisponible()) {
-				// reservaAsiento();
+				//Reservamos el asiento
 				conjuntoAsiento.get(posicionAleatoria).setDisponible(false);
 				asientoDisponible = false;
 
