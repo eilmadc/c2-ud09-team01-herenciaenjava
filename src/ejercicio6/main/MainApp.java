@@ -5,6 +5,8 @@ package ejercicio6.main;
 
 import java.util.Scanner;
 
+import com.sun.deploy.uitoolkit.impl.fx.Utils;
+
 import ejercicio6.clases.Cine;
 import ejercicio6.clases.Espectador;
 import ejercicio6.clases.Pelicula;
@@ -15,6 +17,7 @@ import ejercicio6.clases.Pelicula;
  */
 public class MainApp {
 	Scanner sc = new Scanner(System.in);
+	Utils utils = new Utils();
 	int num[];
 	
 	/**
@@ -41,9 +44,10 @@ public class MainApp {
 		Pelicula pelicula3 = new Pelicula("Dogville", 177, 16, "LarsVon Trier");
 		
 		/**--Creacion Cine/sesion--*/
-		Cine entrada1 = new Cine();
 		//Creo conjunto de asientos y lo inicializo
-		entrada1.asientos();
+		Cine entrada1;
+		entrada1= new Cine(pelicula1, espectador1);
+		System.out.println(entrada1);
 		
 		/**--Obtener Tickets--*/
 		entrada1.obtenerTicket(pelicula1, espectador1);

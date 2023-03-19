@@ -12,97 +12,111 @@ import java.util.ArrayList;
  */
 public class Cine {
 
-	// Constantes
-	final static int NUMERO_SALAS = 1;
+	// ------- Constantes -----------------
+	// final static int NUMERO_SALAS = 1;
 	final static int FILAS = 8;
 	final static int COLUMNAS = 9;
+	final static double PRECIO = 6;
 
-	// Atributos
-	protected char columna = 'A';
-	protected int fila;
-	protected boolean disponible = true;
-	
-	double precio;
-	boolean requisitos;	
-	
+	// ------- Atributos-------------------
+
+	boolean requisitos;
+
+	// Lista con el conjunto de asientos
+	ArrayList<Asiento> conjuntoAsiento = new ArrayList<Asiento>();
+
+	// Lista con el conjunto de Tickets
+	ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+
+	// Objetos
 	Pelicula pelicula;
 	Espectador espectador;
+	Asiento asiento;
+	Cine cine;
 
+	// ------- Constructores -----------------
 
-	ArrayList<Ticket> conjuntoAsiento = new ArrayList<Ticket>();
+	public Cine(Pelicula pelicula, Espectador espectador) {
+		asientos();
+	}
 
-	// Inicializa array asiento con las letras, y reseteo a true
+	// ------- Metodos -----------------
+	// Conjunto de Asientos mediante una lista ArrayList de la clase Asiento
 	public void asientos() {
 		for (int i = 0; i < FILAS; i++) {
-			for (int j = 0; j < COLUMNAS; i++) {
-				char jString = (char) j;
-				conjuntoAsiento.add(new Ticket(jString, i, true, "", ""));
+			for (int j = 0; j < COLUMNAS; j++) {
+				conjuntoAsiento.add(new Asiento(i, j));
 			}
 		}
 	}
 
-	// metodo obtener Ticket sala-pelicula-espectador
-	public boolean obtenerTicket(Pelicula pelicula, Espectador espectador) {
+	// Metodo para obtenerEntrada
+	public void obtenerTicket(Pelicula pelicula, Espectador espectador) {
 
-		boolean req1 = false;
+		boolean req = false;
+
+		// Si cumple requisitos
+		if (cumpleRequisitos(req, pelicula, espectador)) {
+			// Verificar si hay espacio disponible
+			esDisponible();
+		} else
+			System.out.println("El usuario no cumple requisitos. No puede comprar entrada.");
+	}
+
+	public boolean cumpleRequisitos(boolean req1, Pelicula pelicula, Espectador espectador) {
 
 		/*--Chequea si el espectador tiene dinero para la entrada
 		 * si tiene la edad minima de para ver la pelicula
 		 * si hay asiento disponible
 		 */
-		req1 = (espectador.getDinero() >= precio && espectador.getEdad() >= pelicula.getEdadMinima() && esDisponible())
-				? requisitos
-				: !requisitos;
-
-		//Si cumple requisitos
-		if (re1) {
-			//Verificar si hay espacio disponible
-			if(esDisponible()){
-				posicionDisponible
-					
-			};
-			
+		if (espectador.getDinero() >= PRECIO && espectador.getEdad() >= pelicula.getEdadMinima()) {
+			req1 = true;
 		} else {
-			System.out.println("El usuario no cumple requisitos. No puede comprar entrada.");
+			req1 = false;
+			if (espectador.getDinero() < PRECIO)
+				System.out.println("El espectador no tiene dinero suficiente");
+			else
+				System.out.println("El espectador no tiene edad minima para ver pelicula");
 		}
-
-		// (sala)
-
-		return requisitos;
+		return req1;
 	}
 
 	// Comprueba si hay algun asiento disponible
 	public boolean esDisponible() {
 
 		boolean disponible = false;
+		int contadorAsientosDisponibles = 0;
 
 		for (int i = 0; i < FILAS; i++) {
 			for (int j = 0; j < COLUMNAS; i++) {
 				do {
-					if (conjuntoAsiento.get(j).isDisponible()) {
-						disponible = true;
+					if (conjuntoAsiento.get(j).getDisponible()) {
+						contadorAsientosDisponibles++;
 					}
-				} while (!conjuntoAsiento.get(j).isDisponible());
+				} while (!conjuntoAsiento.get(j).getDisponible());
 			}
+			if (contadorAsientosDisponibles > 0)
+				reservaAsiento();
+			else
+				System.out.println("No hay asientos disponibles");
 		}
 		return disponible;
 	}
 
 	// Obtener posicion (letra-numero) disponible
 	// Devuelve posicion asiento disponible
-	public String posicionDisponible() {
+	public String reservaAsiento() {
 		String posicion = "";
 
 		for (int i = 0; i < FILAS; i++) {
 			for (int j = 0; j < COLUMNAS; i++) {
-				char jString = (char) j;
 				do {
-					if (conjuntoAsiento.get(j).isDisponible()) {
+					if (conjuntoAsiento.get(j).getDisponible()) {
 
-						posicion = ("" + jString + i);
-						System.out.println(posicion);
+						tickets.add(new Ticket(asiento, espectador, pelicula));
+						
 					}
-				} while (!conjuntoAsiento.get(j).isDisponible());
+				} while (!conjuntoAsiento.get(j).getDisponible());
 			}
 		}
 		return posicion;

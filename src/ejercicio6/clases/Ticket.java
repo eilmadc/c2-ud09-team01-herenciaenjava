@@ -7,49 +7,35 @@ package ejercicio6.clases;
  * @author elena-01
  *
  */
-public class Ticket extends Cine {
+public class Ticket {
 
+	//Atributos
 	String nombreEspectador;
 	String peliculaTicket;
-	
-	
+	String codAsiento;
+
+
 	/**
 	 * @param nombreEspectador
 	 * @param peliculaTicket
 	 */
-	public Ticket(String nombreEspectador, String peliculaTicket) {
+	public Ticket(Espectador espectador, Pelicula pelicula) {
 		super();
-		this.nombreEspectador = nombreEspectador;
-		this.peliculaTicket = peliculaTicket;
+		this.nombreEspectador = espectador.getNombre();
+		this.peliculaTicket = pelicula.getTitulo();
 	}
 
 	/**
-	 * Constructor al que le pasamos por parametro la pelicula y el nombre del espectador.
+	 * Constructor al que le pasamos por parametro un objeto Espectador, Pelicula, Asiento
 	 * 
-	 * @param columna
-	 * @param fila
 	 * @param disponible
+	 * @param asiento
+	 * @param espectador
+	 * @param pelicula
 	 */
-	public Ticket(char columna, int fila, boolean disponible, String nombre, String pelicula ) {
-		super.columna = columna;
-		super.fila = fila;
-		super.disponible = disponible;
-		this.nombreEspectador=nombre;
-		this.peliculaTicket=pelicula;
+	public Ticket( Asiento asiento, Espectador espectador, Pelicula pelicula) {
+		this.codAsiento = asiento.getId();
+		this.nombreEspectador =espectador.getNombre();
+		this.peliculaTicket = pelicula.getTitulo();
 	}
-
-	/**
-	 * @return the disponible
-	 */
-	public boolean isDisponible() {
-		return disponible;
-	}
-
-	/**
-	 * @param disponible the disponible to set
-	 */
-	public void setDisponible(boolean disponible) {
-		this.disponible = disponible;
-	}
-
 }
