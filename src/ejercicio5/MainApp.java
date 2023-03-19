@@ -20,6 +20,7 @@ public class MainApp {
 
 		// Comprobamos si realmente se puede dar clase en este aula
 		if (aula1.hayClase()) {
+			//Y si hay clase mostramos las notas de cada alumno
 			aula1.clasificaciones();
 		}
 
