@@ -7,7 +7,7 @@ package ejercicio1;
  * @author Team01 (Elena, Palmira, Paul)
  *
  */
-public class mainApp {
+public class MainApp {
 
 	/**
 	 * @param args

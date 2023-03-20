@@ -9,15 +9,20 @@ package ejercicio2;
  */
 public class Serie implements Entregable{
 	
+	// ------------ CONSTANTES ---------------
 	protected final static int TEMPORADAS_BASE = 3;
 	protected final static boolean ENTREGADO_BASE = false;
 
+	// ------------ VARIABLES ----------------
 	protected String titulo;
 	protected int numeroTemporadas;
 	protected boolean entregado;
 	protected String genero;
 	protected String creador;
 
+	// ------------ CONSTRUCTORES ------------
+	
+	// Constructor por defecto
 	public Serie() {
 		this.titulo = "";
 		this.numeroTemporadas = TEMPORADAS_BASE;
@@ -26,6 +31,7 @@ public class Serie implements Entregable{
 		this.creador = "";
 	}
 
+	// Constructor con 2 parametros de entrada (titulo, creador) y el resto por defecto
 	public Serie(String titulo, String creador) {
 		this.titulo = titulo;
 		this.numeroTemporadas = TEMPORADAS_BASE;
@@ -34,12 +40,30 @@ public class Serie implements Entregable{
 		this.creador = "";
 	}
 
+	// Constructor con todos los parametros
 	public Serie(String titulo, int numeroTemporadas, String genero, String creador) {
 		this.titulo = titulo;
 		this.numeroTemporadas = numeroTemporadas;
 		this.genero = genero;
 		this.creador = creador;
 	}
+	
+	// -------------------- MÉTODOS ------------------------
+	
+	// Comparamos los diferentes videojuegos
+	// Nos quedamos con la serie con el mayor número de temporadas
+	public String compareTo(Object a) {
+		Serie serie = (Serie) a;
+        if (this.numeroTemporadas > serie.getNumeroTemporadas()) {
+            return "mayor";
+        } else if (this.numeroTemporadas < serie.getNumeroTemporadas()) {
+            return "menor";
+        } else {
+            return "igual";
+        }
+	}
+	
+	// -------------------- GETTERS Y SETTERS ------------------------
 
 	public String getTitulo() {
 		return titulo;
@@ -87,19 +111,8 @@ public class Serie implements Entregable{
 		}
 		return false;
 	}
-	
-	//Comparamos la serie con el mayor número de temporadas
-	public String compareTo(Object a) {
-		Serie serie = (Serie) a;
-        if (this.numeroTemporadas > serie.getNumeroTemporadas()) {
-            return "mayor";
-        } else if (this.numeroTemporadas < serie.getNumeroTemporadas()) {
-            return "menor";
-        } else {
-            return "igual";
-        }
-	}
 
+	// Sobreescribimos el método toString
 	@Override
 	public String toString() {
 		return "SERIE: "

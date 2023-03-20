@@ -11,16 +11,21 @@ import java.util.Arrays;
  */
 public class Electrodomestico {
 
+	// ------------ CONSTANTES ---------------
 	protected final static double PRC_BSE = 100;
 	protected final static String COLOR_BSE = "blanco";
 	protected final static char CNSMO_ENRG = 'F';
 	protected final static double PSO_BSE = 5;
 
+	// ------------ VARIABLES ----------------
 	protected double precioBase;
 	protected String color;
 	protected char consumoEnergetico;
 	protected double peso;
 
+	// ------------ CONSTRUCTORES ------------
+	
+	// Constructor por defecto
 	public Electrodomestico() {
 		this.precioBase = PRC_BSE;
 		this.color = COLOR_BSE;
@@ -28,6 +33,7 @@ public class Electrodomestico {
 		this.peso = PSO_BSE;
 	}
 
+	// Constructor con 2 parametros de entrada (precioBase, peso) y el resto por defecto
 	public Electrodomestico(double precioBase, double peso) {
 		this.precioBase = precioBase;
 		this.color = COLOR_BSE;
@@ -35,6 +41,7 @@ public class Electrodomestico {
 		this.peso = peso;
 	}
 
+	// Constructor con todos los parametros
 	public Electrodomestico(double precioBase, String color, char consumoEnergetico, double peso) {
 		this.precioBase = precioBase;
 		comprobarColor(color);
@@ -42,6 +49,9 @@ public class Electrodomestico {
 		this.peso = peso;
 	}
 
+	// -------------------- MÉTODOS ------------------------
+	
+	// Comprueba el valor de consumo energético, si no esta entre A y F lo ponemos por defecto
 	private void comprobarConsumoEnergetico(char letra) {
 		if ((letra >= 65 && letra <= 70) || (letra >= 61 && letra <= 66)) {
 			this.consumoEnergetico = letra;
@@ -50,12 +60,14 @@ public class Electrodomestico {
 		}
 	}
 
+	// Comprueba el valor de color, si no es blanco, negro, rojo, azul o gris lo ponemos por defecto
 	private void comprobarColor(String color) {
 		String colores[] = { "blanco", "negro", "rojo", "azul", "gris" };
 		boolean existe = Arrays.asList(colores).contains(color.toLowerCase());
 		this.color = existe ? color : COLOR_BSE;
 	}
-
+	
+	// Según la letra de consumo y el peso añadimos cantidad al precio final
 	public double precioFinal() {
 		double precioFinal = 0;
 
@@ -104,6 +116,8 @@ public class Electrodomestico {
 		return precioFinal;
 	}
 
+	// -------------------- GETTERS Y SETTERS ------------------------
+	
 	public double getPrecioBase() {
 		return precioBase;
 	}
@@ -136,6 +150,7 @@ public class Electrodomestico {
 		this.peso = peso;
 	}
 
+	// Sobreescribimos el método toString
 	@Override
 	public String toString() {
 		return "ELECTRODOMÉSTICO: "
